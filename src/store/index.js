@@ -26,12 +26,11 @@ export default new Vuex.Store({
       localStorage.token = '';
     },
 
-    setLoggedUserId(state, userId) {
-      state.loggedUserId = userId;
-    },
+    // setLoggedUserId(state, userId) {
+    //   state.loggedUserId = userId;
+    // },
 
     setCarInformation(state, car) {
-      state.flightInformation.flightDestination = flight.flightDestination;
       state.carInformation.brand = car.brand;
       state.carInformation.model = car.model;
       state.carInformation.year = car.year;
@@ -45,6 +44,7 @@ export default new Vuex.Store({
   },
   actions: {
     login({ commit }, obj) {
+      console.log("ulazi front");
       fetch('http://localhost:2000/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

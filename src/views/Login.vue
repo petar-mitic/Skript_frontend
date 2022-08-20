@@ -44,27 +44,27 @@ export default {
     onSubmit(e) {
       e.preventDefault();
 
-        let username = document.forms["myForm"]["username"].value;
-        if (username === "") {
-          alert("Username must be filled out");
-          return false;
-        } else if (username.length < 3) {
-          alert("Username smaller than 3");
-          return false;
-        }
+        // let username = document.forms["myForm"]["username"].value;
+        // if (username === "") {
+        //   alert("Username must be filled out");
+        //   return false;
+        // } else if (username.length < 3) {
+        //   alert("Username smaller than 3");
+        //   return false;
+        // }
 
-        let password = document.forms["myForm"]["password"].value;
-        if (password === "") {
-          alert("Password must be filled out");
-          return false;
-        } else if (password.length < 4) {
-          alert("Password smaller than 4");
-          return false;
-        }
-        else if (password.length > 16) {
-          alert("Password longer than 16");
-          return false;
-        }
+        // let password = document.forms["myForm"]["password"].value;
+        // if (password === "") {
+        //   alert("Password must be filled out");
+        //   return false;
+        // } else if (password.length < 4) {
+        //   alert("Password smaller than 4");
+        //   return false;
+        // }
+        // else if (password.length > 16) {
+        //   alert("Password longer than 16");
+        //   return false;
+        // }
 
       this.login(this.form);
       this.$router.push({ name: 'Home' });

@@ -6,7 +6,6 @@
         fixed
         :items="carsTable"
         :fields="fields"
-        small
         :per-page="perPage"
         :current-page="currentPage"
         @row-clicked="rowClicked"
@@ -34,7 +33,7 @@ export default {
       fields: ['brand', 'model', 'year', 'range', 'price'],
       items: [],
       currentPage: 1,
-      perPage: 4,
+      perPage: 5,
     }
   },
 
@@ -70,6 +69,7 @@ export default {
     goToReservation() {
       if (this.token !== "") {
         let carReservation = this.carInformation
+        alert("Your reservation is booked");
         this.$router.push({ name: 'CarReservation', params: { carReservation } });
       }
       else alert("You cannot make reservations. Log in first!");

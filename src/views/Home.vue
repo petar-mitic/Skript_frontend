@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-<img alt="Vue logo" class="img">
-<!--    <h1>Welcome to the World of traveling</h1>-->
+<img alt="Vue logo" src="https://rentacardiscount.rs/wp-content/uploads/2019/11/rentacar.png" >
+
   </div>
 </template>
 

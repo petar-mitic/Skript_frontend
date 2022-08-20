@@ -9,7 +9,8 @@
       <li class="list-group-item">Range: {{ carReservation.range }}</li>
       <li class="list-group-item">Price: {{ carReservation.price }}</li>
     </ul>
-    <b-button variant="primary" v-on:click="goToCar()">Remove Reservation</b-button>
+    <br>
+    <b-button variant="primary" v-on:click="goToCar()">Go back to list of cars</b-button>
   </div>
 </template>
 
