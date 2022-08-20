@@ -10,7 +10,8 @@
           <b-navbar-nav>
             <b-nav-item to="/">Home</b-nav-item>
             <b-nav-item to="/car">Cars</b-nav-item>
-    
+            <b-nav-item to="/motor">Motors</b-nav-item>
+            <b-nav-item to="/truck">Trucks</b-nav-item>
           </b-navbar-nav>
 
           <!-- Right aligned nav items -->

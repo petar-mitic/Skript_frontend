@@ -10,6 +10,16 @@ export default new Vuex.Store({
     car: null,
     carInformation: {
       brand: '', model: '', year: '', range: '', price: ''
+    },
+    motors: [],
+    motor: null,
+    motorInformation: {
+      brand: '', model: '', year: '', range: '', price: ''
+    },
+    trucks: [],
+    truck: null,
+    truckInformation: {
+      brand: '', model: '', year: '', range: '', price: ''
     }
   },
   getters: {
@@ -37,6 +47,30 @@ export default new Vuex.Store({
     setCars(state, cars) {
       state.cars = cars;
     },
+
+    setMotorInformation(state, motor) {
+      state.motorInformation.brand = motor.brand;
+      state.motorInformation.model = motor.model;
+      state.motorInformation.year = motor.year;
+      state.motorInformation.range = motor.range;
+      state.motorInformation.price = motor.price;
+    },
+
+    setMotors(state, motors) {
+      state.motors = motors;
+    },
+
+    setTruckInformation(state, truck) {
+      state.truckInformation.brand = truck.brand;
+      state.truckInformation.model = truck.model;
+      state.truckInformation.year = truck.year;
+      state.truckInformation.range = truck.range;
+      state.truckInformation.price = truck.price;
+    },
+
+    setTrucks(state, trucks) {
+      state.trucks = trucks;
+    }
   },
   actions: {
     login({ commit }, obj) {
@@ -67,6 +101,28 @@ export default new Vuex.Store({
       })
           .then( obj => obj.json() )
           .then( res => commit('setCars', res));
+    },
+
+    fetchMotors({ commit }){
+      fetch('http://localhost:3000/motors/get',{
+        headers: {
+          'authorization': `Bearer ${localStorage.token}`
+        },
+        method: 'GET'
+      })
+          .then( obj => obj.json() )
+          .then( res => commit('setMotors', res));
+    },
+
+    fetchTrucks({ commit }){
+      fetch('http://localhost:3000/trucks/get',{
+        headers: {
+          'authorization': `Bearer ${localStorage.token}`
+        },
+        method: 'GET'
+      })
+          .then( obj => obj.json() )
+          .then( res => commit('setTrucks', res));
     },
   },
   modules: {

@@ -4,7 +4,7 @@
         id="image-table"
         hover
         fixed
-        :items="carsTable"
+        :items="trucksTable"
         :fields="fields"
         :per-page="perPage"
         :current-page="currentPage"
@@ -13,17 +13,17 @@
     </b-table>
     <b-pagination
         v-model="currentPage"
-        :total-rows="carsTable.length"
+        :total-rows="trucksTable.length"
         :per-page="perPage"
         aria-controls="image-table"
     ></b-pagination>
-    <!-- <b-button variant="primary" v-on:click="goToReservation()">Book a car</b-button> -->
-    <!-- <h1>Booked cars</h1>
+    <!-- <b-button variant="primary" v-on:click="goToReservation()">Book a truck</b-button> -->
+    <!-- <h1>Booked trucks</h1>
     <b-table class="table table-hover"
         id="image-table2"
         hover
         fixed
-        :items2="bookedCarsTable"
+        :items2="bookedTrucksTable"
         :fields="fields"
         :per-page="perPage"
         :current-page="currentPage"
@@ -37,7 +37,7 @@
 import {  mapMutations , mapState } from 'vuex';
 
 export default {
-  name: "CarList",
+  name: "TruckList",
 
   data() {
     return {
@@ -46,26 +46,26 @@ export default {
       items2: [],
       currentPage: 1,
       perPage: 5,
-      bookedCars: [],
+      bookedTrucks: [],
     }
   },
 
   computed: {
     ...mapState([
-      'cars',
+      'trucks',
       'token',
-      'carInformation'
+      'truckInformation'
     ]),
-    carsTable: function () {
-      return this.cars;
+    trucksTable: function () {
+      return this.trucks;
     },
-    bookedCarsTable: function () {
-      return this.bookedCars;
+    bookedTrucksTable: function () {
+      return this.bookedTrucks;
     }
   },
 
   mounted() {
-    this.setCarInformation("");
+    this.setTruckInformation("");
     if (localStorage.token) {
       this.setToken(localStorage.token);
     }
@@ -74,23 +74,23 @@ export default {
 
   methods: {
     ...mapMutations([
-      'setCarInformation',
+      'setTruckInformation',
       'setToken'
     ]),
 
     rowClicked(record) {
-      this.setCarInformation(record);
+      this.setTruckInformation(record);
       if (this.token !== "") {
-        let carReservation = this.carInformation;
-        this.$router.push({ name: 'CarReservation', params: { carReservation } });
+        let truckReservation = this.truckInformation;
+        this.$router.push({ name: 'TruckReservation', params: { truckReservation } });
       }
       else alert("You cannot make reservations. Log in first!");
     },
     // goToReservation() {
     //   if (this.token !== "") {
-    //     let carReservation = this.carInformation
+    //     let truckReservation = this.truckInformation
     //     alert("Your reservation is booked");
-    //     this.$router.push({ name: 'CarReservation', params: { carReservation } });
+    //     this.$router.push({ name: 'TruckReservation', params: { truckReservation } });
     //   }
     //   else alert("You cannot make reservations. Log in first!");
     // }
