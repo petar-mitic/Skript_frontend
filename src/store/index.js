@@ -26,10 +26,6 @@ export default new Vuex.Store({
       localStorage.token = '';
     },
 
-    // setLoggedUserId(state, userId) {
-    //   state.loggedUserId = userId;
-    // },
-
     setCarInformation(state, car) {
       state.carInformation.brand = car.brand;
       state.carInformation.model = car.model;

@@ -44,14 +44,14 @@ export default {
     onSubmit(e) {
       e.preventDefault();
 
-        // let username = document.forms["myForm"]["username"].value;
-        // if (username === "") {
-        //   alert("Username must be filled out");
-        //   return false;
-        // } else if (username.length < 3) {
-        //   alert("Username smaller than 3");
-        //   return false;
-        // }
+        let username = document.forms["myForm"]["username"].value;
+        if (username === "") {
+          alert("Username must be filled out");
+          return false;
+        } else if (username.length < 2) {
+          alert("Username smaller than 2");
+          return false;
+        }
 
         // let password = document.forms["myForm"]["password"].value;
         // if (password === "") {
@@ -67,7 +67,7 @@ export default {
         // }
 
       this.login(this.form);
-      this.$router.push({ name: 'Home' });
+      this.$router.push({ name: 'Car' });
     }
   }
 }

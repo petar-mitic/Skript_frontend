@@ -10,7 +10,10 @@
       <li class="list-group-item">Price: {{ carReservation.price }}</li>
     </ul>
     <br>
-    <b-button variant="primary" v-on:click="goToCar()">Go back to list of cars</b-button>
+    <b-button variant="primary" v-on:click="bookCar()">Book reservation</b-button>
+    <br>
+    <br>
+    <b-button variant="primary" v-on:click="goToCar()">Go back</b-button>
   </div>
 </template>
 
@@ -48,6 +51,11 @@ export default {
       'setToken',
       'setCarInformation'
     ]),
+
+    bookCar() {
+      alert("Your reservation is booked")
+      this.$router.push({ name: 'Car' });
+    },
 
     goToCar() {
       this.$router.push({ name: 'Car' });

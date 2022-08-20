@@ -17,7 +17,7 @@
         :per-page="perPage"
         aria-controls="image-table"
     ></b-pagination>
-    <b-button variant="primary" v-on:click="goToReservation()">Book a car</b-button>
+    <!-- <b-button variant="primary" v-on:click="goToReservation()">Book a car</b-button> -->
   </div>
 </template>
 
@@ -65,6 +65,11 @@ export default {
 
     rowClicked(record) {
       this.setCarInformation(record);
+      if (this.token !== "") {
+        let carReservation = this.carInformation
+        this.$router.push({ name: 'CarReservation', params: { carReservation } });
+      }
+      else alert("You cannot make reservations. Log in first!");
     },
     goToReservation() {
       if (this.token !== "") {
